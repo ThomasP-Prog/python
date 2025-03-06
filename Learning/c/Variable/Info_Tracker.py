@@ -16,6 +16,7 @@ def nouvelleListe():
 
 liste = []
 liste.append(nouvelleListe())
+liste.append(nouvelleListe())
 
 for i, personne in enumerate(liste):
     print(f"\n--- Résumé des Informations: Personne {i+1} ---")
