@@ -121,13 +121,56 @@ def search_name(phonebook : dict) -> str|None:
                 return found_name[0]
     print("User not found")
 
+def display_contact(name, phonebook):
+    """Display a single contact's information."""
+    print(f"\nContact: {name}")
+    print("-" * 30)
+    for phone_type, number in phonebook[name].items():
+        if number is not None:
+            print(f"{phone_type.capitalize()}: {format_phone(number)}")
+
+def display_all_contacts(phonebook):
+    """Display all contacts in the phonebook."""
+    if not phonebook:
+        print("Phone book is empty.")
+        return
+    
+    print("\nAll Contacts:")
+    print("=" * 40)
+    for name in sorted(phonebook.keys()):
+        display_contact(name, phonebook)
+
+def format_phone(number):
+    """Format a phone number for display."""
+    number_str = str(number)
+    return f"({number_str[:3]}) {number_str[3:6]}-{number_str[6:]}"
+
 def main() -> None:
     phonebook = {}
-    add_contact(phonebook)
-    #print(phonebook)
-    #update_phone(phonebook)
-    print(phonebook)
-    search_name(phonebook)
+    while True:
+        print("\nPhone Book Options:")
+        print("1. Add contact")
+        print("2. Update contact")
+        print("3. Search for contact")
+        print("4. Display all contacts")
+        print("5. Exit")
+        choice = input("Enter your choice (1-5): ")
+        
+        if choice == "1":
+            phonebook = add_contact(phonebook)
+        elif choice == "2":
+            phonebook = update_phone(phonebook)
+        elif choice == "3":
+            name = search_name(phonebook)
+            if name:
+                display_contact(name, phonebook)
+        elif choice == "4":
+            display_all_contacts(phonebook)
+        elif choice == "5":
+            print("Exiting program. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
     main()
