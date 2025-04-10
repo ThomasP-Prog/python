@@ -1,3 +1,8 @@
+"""Advanced: Create a nested dictionary to model a library with multiple sections,
+   each containing books with various attributes (title, author, publication year, etc.).
+   Implement functions to add new books, search for books by different criteria
+   (author, publication year range, etc.), and generate reports showing book availability by section."""
+
 from datetime import datetime
 import re
 def get_string(prompt : str, string_type : str) -> str:
