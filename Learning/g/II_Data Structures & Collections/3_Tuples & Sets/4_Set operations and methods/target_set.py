@@ -2,24 +2,40 @@
    that finds all subsets within list_of_candidate_sets which are completely disjoint
    (have no elements in common) with the target_set. The function should return a list containing copies of these disjoint candidate subsets.
 """
+def find_disjoint_subsets(target_set : set[str], list_of_candidate_sets : list[set[str]]) -> list[set[str]]:
+    """Find disjoint candidate in a list"""
+    if not list_of_candidate_sets:
+        return list()
+    
+    disjoint_subsets = [subset for subset in list_of_candidate_sets if subset.isdisjoint(target_set)]
+    return disjoint_subsets
 
+def print_disjoint(disjoint_subsets : list[set[str]]) -> None:
+    """Format disjointed subjects"""
+    if not disjoint_subsets:
+        print("No disjointed subset")
+        return
+    
+    print("Disjointed subjects :")
+    print("-"*20)
+    for i, subset in enumerate(disjoint_subsets):
+        print(f"Set {i}: {subset}") 
 
+def main() -> None:
+    """main function"""
+    target_set = {"python", "sql", "cloud"}
 
+    list_of_candidate_sets = [
+        {"java", "c++"},
+        {"sql", "aws"},
+        {"javascript", "html"},
+        {"python", "docker"},
+        {"go", "rust"},
+        {"cloud", "azure", "gcp"},
+        {"data analysis", "ml"}
+    ]
+    disjoint_subsets = find_disjoint_subsets(target_set,list_of_candidate_sets)
+    print_disjoint(disjoint_subsets)
 
-
-# The set you want to check against for disjointness
-target_set = {"python", "sql", "cloud"}
-
-# The list of candidate sets to check
-list_of_candidate_sets = [
-    {"java", "c++"},            # Disjoint with target
-    {"sql", "aws"},             # NOT disjoint (contains 'sql')
-    {"javascript", "html"},     # Disjoint with target
-    {"python", "docker"},       # NOT disjoint (contains 'python')
-    {"go", "rust"},             # Disjoint with target
-    {"cloud", "azure", "gcp"},  # NOT disjoint (contains 'cloud')
-    {"data analysis", "ml"}     # Disjoint with target
-]
-
-# Expected output for this data (order in the list might vary):
-# [ {'java', 'c++'}, {'javascript', 'html'}, {'go', 'rust'}, {'data analysis', 'ml'} ] 
+if __name__ == "__main__":
+    main()
