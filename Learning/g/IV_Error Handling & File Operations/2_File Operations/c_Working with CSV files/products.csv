@@ -1,0 +1,5 @@
+ProductID,ProductName,Price,Category
+P101,Laptop,1200.50,Electronics
+P102,Keyboard,75.00,Electronics
+P103,Coffee Mug,15.99,Home Goods
+P104,Desk Chair,invalid,Furniture

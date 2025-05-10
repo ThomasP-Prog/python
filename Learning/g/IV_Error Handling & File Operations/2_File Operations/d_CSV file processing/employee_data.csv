@@ -1,0 +1,5 @@
+EmployeeID,FirstName,LastName,StartDate
+E101,John,Doe,2020-01-15
+E102,Jane,Smith,2018-07-20
+E103,Mike,Brown,invalid_date
+E104,Sarah,Wilson,2023-11-01

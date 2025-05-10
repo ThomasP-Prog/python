@@ -1,0 +1,7 @@
+OrderID,ProductCategory,SaleAmount
+1,Electronics,150.00
+2,Books,25.50
+3,Electronics,80.75
+4,Clothing,invalid
+5,Books,15.00
+6,Electronics,220.00

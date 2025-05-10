@@ -8,7 +8,7 @@ def get_top_students(average_grades_dict, threshold):
     top_students = []
     for name, avg in average_grades_dict.items():
         print(f"name in for : {name}")
-         # Bug: Should be avg >= threshold
+         # Bug: Should be name >= threshold
         print(f"name type : {type(name)}")
         print(f"threshold type : {type(threshold)}")
         print(f"is name and threshold of same type : {type(name) == type(threshold)}")
